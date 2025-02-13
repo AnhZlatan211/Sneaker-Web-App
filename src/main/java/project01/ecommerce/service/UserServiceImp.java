@@ -25,7 +25,7 @@ public class UserServiceImp implements UserService{
         if (user.getRole() == null || user.getRole().isEmpty()) {
             user.setRole("USER");
         }
-        User userNew = new User(user.getUsername(), user.getFullName(), user.getAge(), user.getGender(), user.getRole(), passwordEncoder.encode(user.getPassword()));
+        User userNew = new User(user.getUsername(), user.getFullName(), user.getAge(), user.getGender(), user.getRole(), passwordEncoder.encode(user.getPassword()), true);
         return userRepository.save(userNew);
     }
 

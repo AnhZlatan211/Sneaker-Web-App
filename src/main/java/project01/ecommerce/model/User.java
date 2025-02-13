@@ -9,17 +9,19 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "username", unique = true, nullable = false)
     private String username;
     private String fullName;
     private String age;
     private String gender;
     private String role;
     private String password;
+    private boolean enabled;
 
     public User() {
     }
 
-    public User(String username, String fullName, String age, String gender, String role, String password) {
+    public User(String username, String fullName, String age, String gender, String role, String password, boolean enabled) {
         super();
         this.username = username;
         this.fullName = fullName;
@@ -27,6 +29,7 @@ public class User {
         this.gender = gender;
         this.role = role;
         this.password = password;
+        this.enabled = enabled;
     }
 
     public Long getId() {
@@ -83,5 +86,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 }
