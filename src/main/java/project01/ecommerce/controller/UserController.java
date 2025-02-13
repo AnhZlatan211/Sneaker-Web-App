@@ -5,10 +5,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import project01.ecommerce.model.User;
 import project01.ecommerce.service.UserService;
 
 @Controller
+@RequestMapping("/")
 public class UserController {
 
     private UserService userService;
@@ -17,27 +19,32 @@ public class UserController {
         this.userService = userService;
     }
 
+    @GetMapping()
+    public String getHomeGuest() {
+        return "guest";
+    }
+
     @GetMapping(value = "/login")
     public String getLogin() {
         return "login";
     }
 
-    @GetMapping(value = "/register")
+    @GetMapping(value = "/signup")
     public String getRegisterForm(Model model, User user) {
         model.addAttribute("user", user);
-        return "register";
+        return "signup";
     }
 
-    @PostMapping(value = "/register")
+    @PostMapping(value = "/signup")
     public String postRegisterForm(@ModelAttribute("user") User user, Model model) {
         User userCheck = userService.findUserByUsername(user.getUsername());
         if (userCheck != null) {
             model.addAttribute("messageUserExist", "Username is taken");
-            return "register";
+            return "signup";
         }
         userService.save(user);
         model.addAttribute("message", "Registration Successfully !");
-        return "register";
+        return "signup";
     }
 
     @GetMapping(value = "/home")

@@ -9,43 +9,41 @@ import project01.ecommerce.service.UserService;
 import java.util.List;
 
 @Controller
+@RequestMapping("/admin")
 public class AdminController {
 
-    private UserService userService;
+    private final UserService userService;
 
     public AdminController(UserService userService) {
         this.userService = userService;
     }
 
-    @GetMapping(value = "/admin")
+    @GetMapping()
     public String getAdminPage(Model model) {
         model.addAttribute("users", userService.getListOfUsers());
         model.addAttribute("totalUsers", userService.countTotalUsers());
         return "admin";
     }
 
-    @GetMapping(value = "/admin/product")
+    @GetMapping(value = "/product")
     public String getAdminProductPage(Model model) {
         model.addAttribute("users", userService.getListOfUsers());
         model.addAttribute("totalUsers", userService.countTotalUsers());
         return "adminProduct";
     }
 
-    @RequestMapping(value = "/admin/delete/{id}")
+    @RequestMapping(value = "/delete/{id}")
     public String deleteUser(@PathVariable Long id, Model model) {
         userService.deleteUser(id);
         model.addAttribute("messageDeleteUser", "Deleted user successfully !");
         return "redirect:/admin";
     }
 
-    @PostMapping(value = "/admin/search/user")
+    @PostMapping(value = "/search/user")
     public String searchUserByName(@RequestParam("keyword") String keyword, Model model) {
         List<User> users = userService.findByNameContaining(keyword);
         model.addAttribute("users", users);
         model.addAttribute("totalUsers", userService.countTotalUsers());
         return "admin";
     }
-
-
-
 }

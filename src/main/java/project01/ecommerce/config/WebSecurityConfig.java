@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import project01.ecommerce.service.CustomSuccessHandler;
 
 @Configuration
@@ -26,16 +27,21 @@ public class WebSecurityConfig {
         http
                 .csrf((c) -> c.disable())
                 .authorizeHttpRequests((auth) -> auth
-                        .requestMatchers("/login","register").permitAll()
+                        .requestMatchers("/login","signup","/").permitAll()
                         .requestMatchers("/css/**","/img/**").permitAll()
                         .requestMatchers("/admin").hasAuthority("ADMIN")
-                        .requestMatchers("/home").hasAuthority("USER")
                         .anyRequest().authenticated()
                 )
                 .formLogin((login) -> login
                         .loginPage("/login")
+                        .loginProcessingUrl("/login")
                         .successHandler(customSuccessHandler)
                         .permitAll()
+                )
+                .logout(logout -> logout
+                        .invalidateHttpSession(true)
+                        .clearAuthentication(true)
+                        .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 );
         return http.build();
     }

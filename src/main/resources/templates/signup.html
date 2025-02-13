@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign up</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" th:href="@{/css/auth.css}">
+</head>
+<body>
+<div class="register" th:style="'background-image: url(' + @{/img/bg-auth.jpg} + ')'">
+  <form class="register-form" th:action="@{/signup}" th:object="${user}" method="post" role="form">
+    <h2>Sign up to see content from friends</h2>
+    <div class="message-register" th:if="${message} != null ">
+      [[${message}]]
+    </div>
+    <div class="message-user-exist" th:if="${messageUserExist} != null ">
+      [[${messageUserExist}]]
+    </div>
+    <label for="fullName">Full Name:</label><br>
+    <input th:field="*{fullName}" type="text" id="fullName" name="fullName" placeholder="Enter your full name..." required autofocus><br>
+
+    <label for="username">Username, phone or email:</label><br>
+    <input th:field="*{username}" type="email" id="username" name="username" placeholder="Username, phone or email..." required><br>
+
+    <label for="age">Age:</label><br>
+    <input th:field="*{age}" type="text" id="age" name="age" placeholder="Age..." required><br>
+
+    <label>Gender:</label><br>
+    <div class="gender">
+      <label for="male">Male</label>
+      <input th:field="*{gender}" type="radio" id="male" name="gender" th:value="Male" required>
+      <label for="female">Female</label>
+      <input th:field="*{gender}" type="radio" id="female" name="gender" th:value="Female" required>
+      <label for="other">Other</label><br>
+      <input th:field="*{gender}" type="radio" id="other" name="gender" th:value="Other" required>
+    </div>
+
+    <label for="password">Password:</label><br>
+    <input th:field="*{password}" type="password" id="password" name="password" placeholder="Password..." required><br>
+
+    <button type="submit">Sign up</button>
+    <p>-<a th:href="@{/login}">Log in</a>-</p>
+  </form>
+</div>
+</body>
+</html>
