@@ -37,8 +37,7 @@ public class UserController {
 
     @PostMapping(value = "/signup")
     public String postRegisterForm(@ModelAttribute("user") User user, Model model) {
-        User userCheck = userService.findUserByUsername(user.getUsername());
-        if (userCheck != null) {
+        if (userService.existUserByUsername(user.getUsername())) {
             model.addAttribute("messageUserExist", "Username is taken");
             return "signup";
         }
