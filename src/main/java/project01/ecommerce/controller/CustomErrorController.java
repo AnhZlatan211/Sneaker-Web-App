@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class CustomErrorController implements ErrorController {
     @GetMapping("/error")
     public String handleError(HttpServletRequest httpServletRequest) {
-        return "/error";
+        return "/error/404";
     }
 }

@@ -13,7 +13,7 @@ import project01.ecommerce.service.UserService;
 @RequestMapping("/")
 public class UserController {
 
-    private UserService userService;
+    private final UserService userService;
 
     public UserController(UserService userService) {
         this.userService = userService;
@@ -26,24 +26,24 @@ public class UserController {
 
     @GetMapping(value = "/login")
     public String getLogin() {
-        return "login";
+        return "auth/login";
     }
 
     @GetMapping(value = "/signup")
     public String getRegisterForm(Model model, User user) {
         model.addAttribute("user", user);
-        return "signup";
+        return "auth/signup";
     }
 
     @PostMapping(value = "/signup")
     public String postRegisterForm(@ModelAttribute("user") User user, Model model) {
         if (userService.existUserByUsername(user.getUsername())) {
             model.addAttribute("messageUserExist", "Username is taken");
-            return "signup";
+            return "auth/signup";
         }
         userService.save(user);
         model.addAttribute("message", "Registration Successfully !");
-        return "signup";
+        return "auth/signup";
     }
 
     @GetMapping(value = "/home")

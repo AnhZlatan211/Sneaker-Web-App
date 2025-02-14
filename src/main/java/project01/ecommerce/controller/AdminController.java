@@ -22,20 +22,20 @@ public class AdminController {
     public String getAdminPage(Model model) {
         model.addAttribute("users", userService.getListOfUsers());
         model.addAttribute("totalUsers", userService.countTotalUsers());
-        return "admin";
+        return "admin/admin";
     }
 
     @GetMapping(value = "/product")
     public String getAdminProductPage(Model model) {
         model.addAttribute("users", userService.getListOfUsers());
         model.addAttribute("totalUsers", userService.countTotalUsers());
-        return "adminProduct";
+        return "admin/adminProduct";
     }
 
-    @RequestMapping(value = "/delete/{id}")
+    @GetMapping(value = "/delete/{id}")
     public String deleteUser(@PathVariable Long id, Model model) {
         userService.deleteUser(id);
-        model.addAttribute("messageDeleteUser", "Deleted user successfully !");
+        model.addAttribute("messageDeleteUser", "Deleted user successfully!");
         return "redirect:/admin";
     }
 
@@ -44,6 +44,6 @@ public class AdminController {
         List<User> users = userService.findByNameContaining(keyword);
         model.addAttribute("users", users);
         model.addAttribute("totalUsers", userService.countTotalUsers());
-        return "admin";
+        return "admin/admin";
     }
 }

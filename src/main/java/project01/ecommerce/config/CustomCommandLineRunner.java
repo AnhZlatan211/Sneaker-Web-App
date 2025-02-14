@@ -27,6 +27,7 @@ public class CustomCommandLineRunner{
 //                admin.setGender("GOD!");
 //                admin.setRole("ADMIN");
 //                admin.setEnabled(true);
+//                userRepository.save(admin);
 //                System.out.println("✅✅✅ User ADMIN đã được tạo. ✅✅✅");
 //            }
 //            else {
