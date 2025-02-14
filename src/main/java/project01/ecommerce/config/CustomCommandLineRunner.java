@@ -15,24 +15,24 @@ public class CustomCommandLineRunner{
             System.out.println("🚀🚀🚀 Chạy rồi, tuyệt vời! 🚀🚀🚀");
         };
     }
-//    @Bean
-//    CommandLineRunner initAdmin(UserRepository userRepository, PasswordEncoder passwordEncoder) {
-//        return args -> {
-//            if (userRepository.findByUsername("admin@gmail.com").isEmpty()) {
-//                User admin = new User();
-//                admin.setUsername("admin@gmail.com");
-//                admin.setPassword(passwordEncoder.encode("1"));
-//                admin.setFullName("Nguyen Duy Anh");
-//                admin.setAge("21");
-//                admin.setGender("GOD!");
-//                admin.setRole("ADMIN");
-//                admin.setEnabled(true);
-//                userRepository.save(admin);
-//                System.out.println("✅✅✅ User ADMIN đã được tạo. ✅✅✅");
-//            }
-//            else {
-//                System.out.println("❗❗❗ User ADMIN đã tồn tại, không cần thêm. ❗❗❗");
-//            }
-//        };
-//    }
+    @Bean
+    CommandLineRunner initAdmin(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+        return args -> {
+            if (userRepository.findByUsername("admin@gmail.com").isEmpty()) {
+                User admin = new User();
+                admin.setUsername("admin@gmail.com");
+                admin.setPassword(passwordEncoder.encode("1"));
+                admin.setFullName("Nguyen Duy Anh");
+                admin.setAge("21");
+                admin.setGender("GOD!");
+                admin.setRole("ADMIN");
+                admin.setEnabled(true);
+                userRepository.save(admin);
+                System.out.println("✅✅✅ User ADMIN đã được tạo. ✅✅✅");
+            }
+            else {
+                System.out.println("❗❗❗ User ADMIN đã tồn tại, không cần thêm. ❗❗❗");
+            }
+        };
+    }
 }
