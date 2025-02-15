@@ -48,74 +48,61 @@
         <a style="cursor: pointer;" onclick="displaylogout()"><i class="fa-solid fa-right-from-bracket"></i></a>
       </div>
     </div>
-    <div class="subheader">
-      <div class="card" style="background: linear-gradient(45deg, #691afc,#ceb3ff)">
-        <i class="fa-solid fa-users" style="color:#5900ff"></i>
-        <div class="subcard">
-          <h3>Total Users</h3>
-          <p>[[${totalUsers}]] (This month)</p>
+    <div class="dashboard">
+        <div class="left">
+            <div class="top">
+                <div class="card">
+                    <div class="card-title">
+                        <p>Total User</p>
+                        <i style="font-size: 15px;" class="fa-solid fa-ellipsis"></i>
+                    </div>
+                    <div class="card-content">
+                        <div>
+                            <p style="font-size: 16px; font-weight: bold;">100 User</p>
+                            <p>(This month)</p>
+                        </div>
+                        <i class="fa-solid fa-users" style="color:#5900ff"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">
+                        <p>Total Product</p>
+                        <i style="font-size: 15px;" class="fa-solid fa-ellipsis"></i>
+                    </div>
+                    <div class="card-content">
+                        <div>
+                            <p style="font-size: 16px; font-weight: bold;">100 Product</p>
+                            <p>(This month)</p>
+                        </div>
+                        <i class="fa-solid fa-shop" style="color:#ffa113"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">
+                        <p>Total Order</p>
+                        <i style="font-size: 15px;" class="fa-solid fa-ellipsis"></i>
+                    </div>
+                    <div class="card-content">
+                        <div>
+                            <p style="font-size: 16px; font-weight: bold;">100 Order</p>
+                            <p>(This month)</p>
+                        </div>
+                        <i class="fa-solid fa-truck-fast" style="color:#ff5050"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="midd">
+                <div class="card">Outlay</div>
+            </div>
+            <div class="bot">
+                <div class="card">Income</div>
+                <div class="card">Latest Transactions</div>
+            </div>
         </div>
-      </div>
-      <div class="card" style="background: linear-gradient(45deg, #ffa113, #25ff4a)">
-        <i class="fa-solid fa-shop" style="color:#ffa113"></i>
-        <div class="subcard">
-          <h3>Total Products</h3>
-          <p>100 (This month)</p>
+        <div class="right">
+            <div class="card">My Card</div>
+            <div class="card">Analytics</div>
         </div>
-      </div>
-      <div class="card" style="background: linear-gradient(45deg, #ff0707, #ff08da)">
-        <i class="fa-solid fa-truck-fast" style="color:#ff5050"></i>
-        <div class="subcard">
-          <h3>Total Orders</h3>
-          <p>100 (This month)</p>
-        </div>
-      </div>
-      <div class="card" style="background: linear-gradient(45deg,#2f32fd, #05e2ff)">
-        <i class="fa-solid fa-money-bill" style="color:#00aaff"></i>
-        <div class="subcard">
-          <h3>Total Growth</h3>
-          <p>100 (This month)</p>
-        </div>
-      </div>
-    </div>
-    <div class="mid">
-      <p>Manage user lists</p>
-      <div class="category">
-        <form class="search" th:action="@{/admin/search/user}" method="post">
-          <input type="text" name="keyword" placeholder="Search by name...">
-          <button><i class="fa-solid fa-magnifying-glass"></i></button>
-        </form>
-        <div class="sort">
-          <select>
-            <option>All</option>
-            <option>Latest</option>
-            <option>Oldest</option>
-            <option>Male</option>
-            <option>Female</option>
-          </select>
-          <i class="fa-solid fa-chevron-down"></i>
-        </div>
-      </div>
-      <div class="tablelist">
-        <table >
-          <tr>
-            <th>Username</th>
-            <th>Full name</th>
-            <th>Age</th>
-            <th>Gender</th>
-            <th>Role</th>
-            <th>Delete</th>
-          </tr>
-          <tr th:each="user : ${users}">
-            <td th:text="${user.username}"/>
-            <td th:text="${user.fullName}"/>
-            <td th:text="${user.age}"/>
-            <td th:text="${user.gender}"/>
-            <td th:text="${user.role}"/>
-            <td ><a class="delete" th:href="'/admin/delete/' + ${user.id}"><i class="fa-solid fa-trash-can"></i></a></td>
-          </tr>
-        </table>
-      </div>
     </div>
   </div>
 </div>

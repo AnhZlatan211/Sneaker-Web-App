@@ -2,6 +2,8 @@ package project01.ecommerce.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "users" ,uniqueConstraints = @UniqueConstraint(columnNames = "username"))
 public class User {
@@ -17,6 +19,12 @@ public class User {
     private String role;
     private String password;
     private boolean enabled;
+
+    @OneToMany(mappedBy = "user")
+    private List<Order> orders;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private Cart cart;
 
     public User() {
     }
