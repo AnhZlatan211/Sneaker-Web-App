@@ -14,11 +14,11 @@
       <a href=""><i class="fa-brands fa-sketch"></i>SneakerAdmin</a>
     </div>
     <div class="mid">
-      <div class="element">
-        <a th:href="@{/admin}"><i class="fa-solid fa-user"></i>  Dashboard</a>
-      </div>
       <div class="element" style="background-color: #DFF2FF; border:none;border-radius:  100px 0px 0px 100px">
-        <a th:href="@{/admin}" style="color: #252525;"><i class="fa-solid fa-user"></i>  Users</a>
+        <a th:href="@{/admin}" style="color: #252525;"><i class="fa-solid fa-user"></i>  Dashboard</a>
+      </div>
+      <div class="element">
+        <a th:href="@{/admin/user}"><i class="fa-solid fa-user"></i>  Users</a>
       </div>
       <div class="element">
         <a th:href="@{/admin/product}"><i class="fa-solid fa-shop"></i>  Products</a>
@@ -58,8 +58,8 @@
                     </div>
                     <div class="card-content">
                         <div>
-                            <p style="font-size: 16px; font-weight: bold;">100 User</p>
-                            <p>(This month)</p>
+                            <p style="font-size: 16px; font-weight: bold;color:#34E4B5">+ 100 User</p>
+                            <p >(This month)</p>
                         </div>
                         <i class="fa-solid fa-users" style="color:#5900ff"></i>
                     </div>
@@ -71,8 +71,8 @@
                     </div>
                     <div class="card-content">
                         <div>
-                            <p style="font-size: 16px; font-weight: bold;">100 Product</p>
-                            <p>(This month)</p>
+                            <p style="font-size: 16px; font-weight: bold;color:#34E4B5">+ 100 Product</p>
+                            <p >(This month)</p>
                         </div>
                         <i class="fa-solid fa-shop" style="color:#ffa113"></i>
                     </div>
@@ -84,24 +84,96 @@
                     </div>
                     <div class="card-content">
                         <div>
-                            <p style="font-size: 16px; font-weight: bold;">100 Order</p>
-                            <p>(This month)</p>
+                            <p style="font-size: 16px; font-weight: bold;color:#34E4B5">+ 100 Order</p>
+                            <p >(This month)</p>
                         </div>
                         <i class="fa-solid fa-truck-fast" style="color:#ff5050"></i>
                     </div>
                 </div>
             </div>
             <div class="midd">
-                <div class="card">Outlay</div>
+                <div class="card">
+                  <div class="card-title">
+                    <p>Outlay</p>
+                    <div class="son">
+                      <div>
+                        <i class="fa-solid fa-circle" style="color:#ffa113;"></i>
+                        <p>Previous Month</p>
+                      </div>
+                      <div>
+                        <i class="fa-solid fa-circle" style="color:#34E4B5;"></i>
+                        <p>Selected Month</p>
+                      </div>
+                      <select name="" id="">
+                        <option value="">2025</option>
+                        <option value="">2024</option>
+                        <option value="">2023</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="card-content">
+                    <div>
+                      <img src="/static/css/Pro3-images/Admin-dashboard-2.png" alt="">
+                    </div>
+                    <p>1 5 10 15 20 25 30</p>
+                  </div>
+                </div>
             </div>
             <div class="bot">
-                <div class="card">Income</div>
-                <div class="card">Latest Transactions</div>
+                <div class="card">
+                  <div class="card-title">
+                    <p>Income</p>
+                    <i style="font-size: 15px;" class="fa-solid fa-ellipsis"></i>
+                  </div>
+                  <div class="card-content">
+                    <div>
+                        <p >Highest earning month</p>
+                        <p style="font-size: 14px;color:#34E4B5">+ $3050.5</p>
+                    </div>
+                    <div>
+                      <p >Least earning month</p>
+                      <p style="font-size: 14px;color:#34E4B5">+ $105.8</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-title">
+                    <p>Latest Transactions</p>
+                    <i style="font-size: 15px;" class="fa-solid fa-ellipsis"></i>
+                  </div>
+                  <div class="card-content">
+                    <div>
+                        <p >Card refund for discounts</p>
+                        <p style="font-size: 14px;color:#34E4B5">+ $40.5</p>
+                    </div>
+                    <div>
+                      <p >System maintenance</p>
+                      <p style="font-size: 14px;color:#ff5050">- $1000.89</p>
+                    </div>
+                  </div>
+                </div>
             </div>
         </div>
         <div class="right">
-            <div class="card">My Card</div>
-            <div class="card">Analytics</div>
+            <div class="card">
+              <div class="card-title">
+                <p>My Card</p>
+                <i style="font-size: 15px;" class="fa-solid fa-ellipsis"></i>
+              </div>
+              <div class="card-content">
+                <img src="/static/css/Pro3-images/Admin-dashboard-1.png" alt="">
+                <img src="/static/css/Pro3-images/Admin-dashboard-1.png" alt="">
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-title">
+                <p>Analytics</p>
+                <i style="font-size: 15px;" class="fa-solid fa-ellipsis"></i>
+              </div>
+              <div class="card-content">
+                <img src="/static/css/Pro3-images/Admin-dashboard-3.png" alt="">
+              </div>
+            </div>
         </div>
     </div>
   </div>
