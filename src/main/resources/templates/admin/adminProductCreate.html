@@ -83,7 +83,7 @@
     </div>
     <div class="mid">
       <p>Add Product</p>
-      <div th:if="${messageSaveProduct} != null">[[${messageSaveProduct}]]</div>
+      <div class="message-register" th:if="${messageSaveProduct} != null">[[${messageSaveProduct}]]</div>
         <form class="create" th:action="@{/admin/product/create}" th:object="${product}" method="post">
           <div class="row">
             <div>
@@ -112,7 +112,7 @@
           <div class="row">
             <div></div>
             <div>
-              <button th:href="@{/admin/product}">Cancel</button>
+              <a th:href="@{/admin/product}" class="cancel">Cancel</a>
               <button type="submit">Submit</button>
             </div>
           </div>

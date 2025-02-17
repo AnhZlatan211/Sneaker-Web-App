@@ -26,13 +26,18 @@ public class ProductServiceImp implements ProductService{
     }
 
     @Override
+    public void delete(Long id) {
+        productRepository.deleteById(id);
+    }
+
+    @Override
     public List<Product> getListOfProducts() {
         return productRepository.findAll();
     }
 
     @Override
-    public void delete(Long id) {
-        productRepository.deleteById(id);
+    public List<Product> findByNameContaining(String keyword) {
+        return productRepository.findByNameContaining(keyword);
     }
 
     @Override

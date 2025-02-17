@@ -7,7 +7,8 @@ import java.util.List;
 public interface ProductService {
     List<Product> saveAll(List<Product> products);
     Product save(Product product);
-    List<Product> getListOfProducts();
     void delete(Long id);
+    List<Product> getListOfProducts();
+    List<Product> findByNameContaining(String keyword);
     Long countTotalProducts();
 }

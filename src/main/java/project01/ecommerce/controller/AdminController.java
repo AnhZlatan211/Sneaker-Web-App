@@ -42,10 +42,9 @@ public class AdminController {
         model.addAttribute("messageDeleteUser", "Deleted user successfully!");
         return "redirect:/admin/user";
     }
-    @PostMapping(value = "/search/user")
+    @PostMapping(value = "/user/search")
     public String searchUserByName(@RequestParam("keyword") String keyword, Model model) {
-        List<User> users = userService.findByNameContaining(keyword);
-        model.addAttribute("users", users);
+        model.addAttribute("users", userService.findByNameContaining(keyword));
         return "admin/adminUser";
     }
 
@@ -67,10 +66,15 @@ public class AdminController {
         model.addAttribute("messageSaveProduct", "Saved product successfully!");
         return "admin/adminProductCreate";
     }
+    @PostMapping(value = "/product/search")
+    public String searchProductByName(@RequestParam("keyword") String keyword, Model model) {
+        model.addAttribute("products", productService.findByNameContaining(keyword));
+        return "admin/adminProduct";
+    }
     @GetMapping(value = "/product/delete/{id}")
     public String deleteProduct(@PathVariable Long id, Model model) {
         productService.delete(id);
         model.addAttribute("messageDeleteProduct", "Deleted product successfully!");
-        return "admin/adminProduct";
+        return "redirect:/admin/product";
     }
 }

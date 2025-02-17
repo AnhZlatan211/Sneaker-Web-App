@@ -84,9 +84,9 @@
         <div class="mid">
             <p>Manage Product lists</p>
             <div class="category">
-                <form class="search" th:action="@{/admin/search/user}" method="post">
+                <form class="search" th:action="@{/admin/product/search}" method="post">
                     <input type="text" name="keyword" placeholder="Search by name...">
-                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
                 <div class="new-product">
                     <a th:href="@{/admin/product/create}"><i class="fa-solid fa-plus"></i> Add</a>
@@ -107,7 +107,9 @@
                         <td th:text="${product.name}"/>
                         <td th:text="${product.price}"/>
                         <td th:text="${product.stock}"/>
-                        <td th:text="${product.imageUrl}"/>
+                        <td style="text-align:center">
+                            <img th:src="${product.imageUrl}" style="width: 150px; height: 150px">
+                        </td>
                         <td th:text="${product.description}"/>
                         <td ><a class="delete" th:href="'/admin/product/delete/' + ${product.id}"><i class="fa-solid fa-trash-can"></i></a></td>
                     </tr>
