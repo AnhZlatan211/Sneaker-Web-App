@@ -88,17 +88,11 @@
                     <input type="text" name="keyword" placeholder="Search by name...">
                     <button><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
-                <div class="sort">
-                    <select>
-                        <option>All</option>
-                        <option>Latest</option>
-                        <option>Oldest</option>
-                        <option>Male</option>
-                        <option>Female</option>
-                    </select>
-                    <i class="fa-solid fa-chevron-down"></i>
+                <div class="new-product">
+                    <a th:href="@{/admin/product/create}"><i class="fa-solid fa-plus"></i> Add</a>
                 </div>
             </div>
+            <div th:if="${messageDeleteProduct} != null">[[${messageDeleteProduct}]]</div>
             <div class="tablelist">
                 <table >
                     <tr>

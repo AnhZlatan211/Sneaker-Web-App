@@ -151,6 +151,7 @@ body {
     margin: 10px;
     display:flex;
     justify-content:center;
+    align-items: center;
     gap:3%;
 }
 .container .content .mid .category .search {
@@ -237,11 +238,10 @@ body {
 /*Dashboard*/
 .container .dashboard{
     width: 97%;
-    height: 100vh;
+    height: 80vh;
     display: flex;
     flex-direction: row;
     gap:20px;
-    margin-bottom: 20px;
 }
 .container .dashboard .card {
     background-color: #21222D;
@@ -403,6 +403,22 @@ body {
 
 
 /*Create Product*/
+.container .content .mid .category .new-product a{
+    text-decoration: none;
+    color: #171821;
+    display: inline-block;
+    padding: 10px 17px;
+    border: none;
+    border-radius: 100px;
+    font-size: medium;
+    font-weight: bold;
+    background-color: #DBDFEA;
+    word-spacing: 6px;
+}
+.container .content .mid .category .new-product a:hover{
+    cursor: pointer;
+    background-color: #f6f9ff;
+}
 .container .content .mid .create {
     display: flex;
     flex-direction: column;
@@ -454,7 +470,11 @@ body {
 .container .content .mid .create .row button:last-child:hover {
     background-color:#bdcfda;
 }
-
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
 
 

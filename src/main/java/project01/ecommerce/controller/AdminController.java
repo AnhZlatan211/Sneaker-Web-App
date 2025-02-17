@@ -61,10 +61,16 @@ public class AdminController {
         model.addAttribute("product", product);
         return "admin/adminProductCreate";
     }
+    @PostMapping(value = "/product/create")
+    public String postCreateProduct(@ModelAttribute("product") Product product, Model model) {
+        productService.save(product);
+        model.addAttribute("messageSaveProduct", "Saved product successfully!");
+        return "admin/adminProductCreate";
+    }
     @GetMapping(value = "/product/delete/{id}")
     public String deleteProduct(@PathVariable Long id, Model model) {
         productService.delete(id);
         model.addAttribute("messageDeleteProduct", "Deleted product successfully!");
-        return "redirect:/admin/product";
+        return "admin/adminProduct";
     }
 }

@@ -83,36 +83,37 @@
     </div>
     <div class="mid">
       <p>Add Product</p>
-        <form class="create" action="">
+      <div th:if="${messageSaveProduct} != null">[[${messageSaveProduct}]]</div>
+        <form class="create" th:action="@{/admin/product/create}" th:object="${product}" method="post">
           <div class="row">
             <div>
               <label for="name">Name:</label>
-              <input type="text" id="name" required>
+              <input th:field="*{name}" type="text" id="name" placeholder="Enter product name ..." required>
             </div>
             <div>
               <label for="price">Price:</label>
-              <input type="number" id="price" required>
+              <input th:field="*{price}" type="number" id="price" placeholder="Enter product price ..." required>
             </div>
           </div>
           <div class="row">
             <div>
-              <label for="Stock">Stock:</label>
-              <input type="number" id="Stock" required>
+              <label for="stock">Stock:</label>
+              <input th:field="*{stock}" type="number" id="stock" placeholder="Enter product stock ..." required>
             </div>
             <div>
-              <label for="img">Img Url:</label>
-              <input type="text" id="img" required>
+              <label for="imageUrl">Img Url:</label>
+              <input th:field="*{imageUrl}" type="text" id="imageUrl" placeholder="Enter product img ..." required>
             </div>
           </div>
           <div class="row">
-              <label for="area">Description:</label>
-              <textarea type="text" id="area" required></textarea>
+              <label for="description">Description:</label>
+              <textarea th:field="*{description}" type="text" id="description" placeholder="Enter product description ..."  required></textarea>
           </div>
           <div class="row">
             <div></div>
             <div>
-              <button>Cancle</button>
-              <button>Submit</button>
+              <button th:href="@{/admin/product}">Cancel</button>
+              <button type="submit">Submit</button>
             </div>
           </div>
         </form>
