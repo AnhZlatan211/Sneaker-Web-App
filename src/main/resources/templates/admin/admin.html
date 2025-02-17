@@ -2,23 +2,23 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Admin Page</title>
+  <title>Admin</title>
   <script src="https://kit.fontawesome.com/7b50466486.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" th:href="@{/css/admin.css}">
-  <link rel="stylesheet" href="/static/css/admin.css">
 </head>
 <body>
+<!--<div class="container" th:style="'background-image: url(' + @{/img/bg-auth.jpg} + ')'">-->
 <div class="container">
   <div class="nav">
     <div class="top">
-      <a href=""><i class="fa-brands fa-sketch"></i>SneakerAdmin</a>
+      <a th:href="@{/admin}"><i class="fa-brands fa-sketch"></i>SneakerAdmin</a>
     </div>
     <div class="mid">
-      <div class="element">
-        <a th:href="@{/admin}"><i class="fa-solid fa-user"></i>  Dashboard</a>
-      </div>
       <div class="element" style="background-color: #DFF2FF; border:none;border-radius:  100px 0px 0px 100px">
-        <a th:href="@{/admin}" style="color: #252525;"><i class="fa-solid fa-user"></i>  Users</a>
+        <a th:href="@{/admin}" style="color: #252525;"><i class="fa-solid fa-gauge"></i>  Dashboard</a>
+      </div>
+      <div class="element">
+        <a th:href="@{/admin/user}"><i class="fa-solid fa-user"></i>  Users</a>
       </div>
       <div class="element">
         <a th:href="@{/admin/product}"><i class="fa-solid fa-shop"></i>  Products</a>
@@ -30,11 +30,14 @@
         <a href=""><i class="fa-solid fa-money-check-dollar"></i>  Stock</a>
       </div>
       <div class="element">
-        <a href=""><i class="fa-solid fa-gear"></i>  Setting</a>
+        <a th:href="@{/home}"><i class="fa-solid fa-house"></i>  Home Page</a>
+      </div>
+      <div class="element">
+        <a><i class="fa-solid fa-gear"></i>  Setting</a>
       </div>
     </div>
     <div class="bottom">
-      <a href=""><i class="fa-solid fa-question"></i></a>
+      <a><i class="fa-solid fa-question"></i></a>
     </div>
   </div>
   <div class="content">
@@ -43,78 +46,137 @@
         <p>Welcome, Admin</p>
       </div>
       <div class="right">
-        <a href=""><i class="fa-solid fa-bell"></i></a>
-        <a href=""><i class="fa-solid fa-user"></i></a>
+        <a ><i class="fa-solid fa-bell"></i></a>
+        <a ><i class="fa-solid fa-user"></i></a>
         <a style="cursor: pointer;" onclick="displaylogout()"><i class="fa-solid fa-right-from-bracket"></i></a>
       </div>
     </div>
-    <div class="subheader">
-      <div class="card" style="background: linear-gradient(45deg, #691afc,#ceb3ff)">
-        <i class="fa-solid fa-users" style="color:#5900ff"></i>
-        <div class="subcard">
-          <h3>Total Users</h3>
-          <p>[[${totalUsers}]] (This month)</p>
+    <div class="dashboard">
+      <div class="left">
+        <div class="top">
+          <div class="card">
+            <div class="card-title">
+              <p>Total User</p>
+              <i style="font-size: 15px;" class="fa-solid fa-ellipsis"></i>
+            </div>
+            <div class="card-content">
+              <div>
+                <p style="font-size: 16px; font-weight: bold;color:#34E4B5">+ 100 User</p>
+                <p >(This month)</p>
+              </div>
+              <i class="fa-solid fa-users" style="color:#5900ff"></i>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">
+              <p>Total Product</p>
+              <i style="font-size: 15px;" class="fa-solid fa-ellipsis"></i>
+            </div>
+            <div class="card-content">
+              <div>
+                <p style="font-size: 16px; font-weight: bold;color:#34E4B5">+ 100 Product</p>
+                <p >(This month)</p>
+              </div>
+              <i class="fa-solid fa-shop" style="color:#ffa113"></i>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">
+              <p>Total Order</p>
+              <i style="font-size: 15px;" class="fa-solid fa-ellipsis"></i>
+            </div>
+            <div class="card-content">
+              <div>
+                <p style="font-size: 16px; font-weight: bold;color:#34E4B5">+ 100 Order</p>
+                <p >(This month)</p>
+              </div>
+              <i class="fa-solid fa-truck-fast" style="color:#ff5050"></i>
+            </div>
+          </div>
+        </div>
+        <div class="midd">
+          <div class="card">
+            <div class="card-title">
+              <p>Outlay</p>
+              <div class="son">
+                <div>
+                  <i class="fa-solid fa-circle" style="color:#ffa113;"></i>
+                  <p>Previous Month</p>
+                </div>
+                <div>
+                  <i class="fa-solid fa-circle" style="color:#34E4B5;"></i>
+                  <p>Selected Month</p>
+                </div>
+                <select name="" id="">
+                  <option value="">2025</option>
+                  <option value="">2024</option>
+                  <option value="">2023</option>
+                </select>
+              </div>
+            </div>
+            <div class="card-content">
+              <div>
+                <img th:src="@{/img/Admin-dashboard-2.png}" alt="">
+              </div>
+              <p>1 5 10 15 20 25 30</p>
+            </div>
+          </div>
+        </div>
+        <div class="bot">
+          <div class="card">
+            <div class="card-title">
+              <p>Income</p>
+              <i style="font-size: 15px;" class="fa-solid fa-ellipsis"></i>
+            </div>
+            <div class="card-content">
+              <div>
+                <p >Highest earning month</p>
+                <p style="font-size: 14px;color:#34E4B5">+ $3050.5</p>
+              </div>
+              <div>
+                <p >Least earning month</p>
+                <p style="font-size: 14px;color:#34E4B5">+ $105.8</p>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">
+              <p>Latest Transactions</p>
+              <i style="font-size: 15px;" class="fa-solid fa-ellipsis"></i>
+            </div>
+            <div class="card-content">
+              <div>
+                <p >Card refund for discounts</p>
+                <p style="font-size: 14px;color:#34E4B5">+ $40.5</p>
+              </div>
+              <div>
+                <p >System maintenance</p>
+                <p style="font-size: 14px;color:#ff5050">- $1000.89</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="card" style="background: linear-gradient(45deg, #ffa113, #25ff4a)">
-        <i class="fa-solid fa-shop" style="color:#ffa113"></i>
-        <div class="subcard">
-          <h3>Total Products</h3>
-          <p>100 (This month)</p>
+      <div class="right">
+        <div class="card">
+          <div class="card-title">
+            <p>My Card</p>
+            <i style="font-size: 15px;" class="fa-solid fa-ellipsis"></i>
+          </div>
+          <div class="card-content">
+            <img th:src="@{/img/Admin-dashboard-1.png}" alt="">
+            <img th:src="@{/img/Admin-dashboard-1.png}" alt="">
+          </div>
         </div>
-      </div>
-      <div class="card" style="background: linear-gradient(45deg, #ff0707, #ff08da)">
-        <i class="fa-solid fa-truck-fast" style="color:#ff5050"></i>
-        <div class="subcard">
-          <h3>Total Orders</h3>
-          <p>100 (This month)</p>
+        <div class="card">
+          <div class="card-title">
+            <p>Analytics</p>
+            <i style="font-size: 15px;" class="fa-solid fa-ellipsis"></i>
+          </div>
+          <div class="card-content">
+            <img th:src="@{/img/Admin-dashboard-3.png}" alt="">
+          </div>
         </div>
-      </div>
-      <div class="card" style="background: linear-gradient(45deg,#2f32fd, #05e2ff)">
-        <i class="fa-solid fa-money-bill" style="color:#00aaff"></i>
-        <div class="subcard">
-          <h3>Total Growth</h3>
-          <p>100 (This month)</p>
-        </div>
-      </div>
-    </div>
-    <div class="mid">
-      <p>Manage user lists</p>
-      <div class="category">
-        <form class="search" th:action="@{/admin/search/user}" method="post">
-          <input type="text" name="keyword" placeholder="Search by name...">
-          <button><i class="fa-solid fa-magnifying-glass"></i></button>
-        </form>
-        <div class="sort">
-          <select>
-            <option>All</option>
-            <option>Latest</option>
-            <option>Oldest</option>
-            <option>Male</option>
-            <option>Female</option>
-          </select>
-          <i class="fa-solid fa-chevron-down"></i>
-        </div>
-      </div>
-      <div class="tablelist">
-        <table >
-          <tr>
-            <th>Username</th>
-            <th>Full name</th>
-            <th>Age</th>
-            <th>Gender</th>
-            <th>Role</th>
-            <th>Delete</th>
-          </tr>
-          <tr th:each="user : ${users}">
-            <td th:text="${user.username}"/>
-            <td th:text="${user.fullName}"/>
-            <td th:text="${user.age}"/>
-            <td th:text="${user.gender}"/>
-            <td th:text="${user.role}"/>
-            <td ><a class="delete" th:href="'/admin/delete/' + ${user.id}"><i class="fa-solid fa-trash-can"></i></a></td>
-          </tr>
-        </table>
       </div>
     </div>
   </div>

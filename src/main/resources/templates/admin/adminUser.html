@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <script src="https://kit.fontawesome.com/7b50466486.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+</head>
+<body>
+<div class="container">
+    <div class="nav">
+        <div class="top">
+            <a th:href="@{/admin}"><i class="fa-brands fa-sketch"></i>SneakerAdmin</a>
+        </div>
+        <div class="mid">
+            <div class="element">
+                <a th:href="@{/admin}"><i class="fa-solid fa-gauge"></i>  Dashboard</a>
+            </div>
+            <div class="element" style="background-color: #DFF2FF; border:none;border-radius:  100px 0px 0px 100px">
+                <a th:href="@{/admin/user}" style="color: #252525;"><i class="fa-solid fa-user"></i>  Users</a>
+            </div>
+            <div class="element">
+                <a th:href="@{/admin/product}"><i class="fa-solid fa-shop"></i>  Products</a>
+            </div>
+            <div class="element">
+                <a href=""><i class="fa-solid fa-clock-rotate-left"></i>  Orders History</a>
+            </div>
+            <div class="element">
+                <a href=""><i class="fa-solid fa-money-check-dollar"></i>  Stock</a>
+            </div>
+            <div class="element">
+                <a th:href="@{/home}"><i class="fa-solid fa-house"></i>  Home Page</a>
+            </div>
+            <div class="element">
+                <a><i class="fa-solid fa-gear"></i>  Setting</a>
+            </div>
+        </div>
+        <div class="bottom">
+            <a><i class="fa-solid fa-question"></i></a>
+        </div>
+    </div>
+    <div class="content">
+        <div class="header">
+            <div class="left">
+                <p>Welcome, Admin</p>
+            </div>
+            <div class="right">
+                <a ><i class="fa-solid fa-bell"></i></a>
+                <a ><i class="fa-solid fa-user"></i></a>
+                <a style="cursor: pointer;" onclick="displaylogout()"><i class="fa-solid fa-right-from-bracket"></i></a>
+            </div>
+        </div>
+        <div class="subheader">
+            <div class="card" style="background: linear-gradient(45deg, #691afc,#ceb3ff)">
+                <i class="fa-solid fa-users" style="color:#5900ff"></i>
+                <div class="subcard">
+                    <h3>Total Users</h3>
+                    <p>[[${totalUsers}]] (This month)</p>
+                </div>
+            </div>
+            <div class="card" style="background: linear-gradient(45deg, #ffa113, #25ff4a)">
+                <i class="fa-solid fa-shop" style="color:#ffa113"></i>
+                <div class="subcard">
+                    <h3>Total Products</h3>
+                    <p>100 (This month)</p>
+                </div>
+            </div>
+            <div class="card" style="background: linear-gradient(45deg, #ff0707, #ff08da)">
+                <i class="fa-solid fa-truck-fast" style="color:#ff5050"></i>
+                <div class="subcard">
+                    <h3>Total Orders</h3>
+                    <p>100 (This month)</p>
+                </div>
+            </div>
+            <div class="card" style="background: linear-gradient(45deg,#2f32fd, #05e2ff)">
+                <i class="fa-solid fa-money-bill" style="color:#00aaff"></i>
+                <div class="subcard">
+                    <h3>Total Growth</h3>
+                    <p>100 (This month)</p>
+                </div>
+            </div>
+        </div>
+        <div class="mid">
+            <p>Manage user lists</p>
+            <div class="category">
+                <form class="search" th:action="@{/admin/search/user}" method="post">
+                    <input type="text" name="keyword" placeholder="Search by name...">
+                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+                <div class="sort">
+                    <select>
+                        <option>All</option>
+                        <option>Latest</option>
+                        <option>Oldest</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+            </div>
+            <div class="tablelist">
+                <table >
+                    <tr>
+                        <th>Username</th>
+                        <th>Full name</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Role</th>
+                        <th>Delete</th>
+                    </tr>
+                    <tr th:each="user : ${users}">
+                        <td th:text="${user.username}"/>
+                        <td th:text="${user.fullName}"/>
+                        <td th:text="${user.age}"/>
+                        <td th:text="${user.gender}"/>
+                        <td th:text="${user.role}"/>
+                        <td ><a class="delete" th:href="'/admin/delete/' + ${user.id}"><i class="fa-solid fa-trash-can"></i></a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Display: none-->
+<div id="logout">
+    <div action="" class="container">
+        <h3>Are you sure you want to log out?</h3>
+        <div class="select">
+            <a style="cursor: pointer;" onclick="hidelogout()">Cancel</a>
+            <a th:href="@{/logout}">Yes</a>
+        </div>
+    </div>
+</div>
+<script>
+//Logout
+var logout = document.getElementById('logout');
+var deleteUser = document.getElementById('deleteUser');
+function displaylogout() {
+  logout.style.display = "block";
+}
+function hidelogout() {
+  logout.style.display = "none";
+}
+function displayDeleteUser() {
+  deleteUser.style.display = "block";
+}
+window.onclick = function(event) {
+  if(event.target == logout) {
+    logout.style.display = "none";
+  }
+  if(event.target == deleteUser) {
+    deleteUser.style.display = "none";
+  }
+}
+</script>
+</body>
+</html>

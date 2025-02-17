@@ -35,4 +35,10 @@ public class CustomCommandLineRunner{
             }
         };
     }
+    @Bean
+    CommandLineRunner initProductList() {
+        return args -> {
+
+        };
+    }
 }

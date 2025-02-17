@@ -24,7 +24,12 @@ public class AdminController {
         model.addAttribute("totalUsers", userService.countTotalUsers());
         return "admin/admin";
     }
-
+    @GetMapping(value = "/user")
+    public String getAdminUserPage(Model model) {
+        model.addAttribute("users", userService.getListOfUsers());
+        model.addAttribute("totalUsers", userService.countTotalUsers());
+        return "admin/adminUser";
+    }
     @GetMapping(value = "/product")
     public String getAdminProductPage(Model model) {
         model.addAttribute("users", userService.getListOfUsers());
@@ -44,6 +49,6 @@ public class AdminController {
         List<User> users = userService.findByNameContaining(keyword);
         model.addAttribute("users", users);
         model.addAttribute("totalUsers", userService.countTotalUsers());
-        return "admin/admin";
+        return "admin/adminUser";
     }
 }

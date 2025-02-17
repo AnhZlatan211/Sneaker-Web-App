@@ -97,7 +97,7 @@ html {
     margin-top: 74px;
     position: relative;
     height:500px;
-    background-image: url("Pro3-images/nav-bottom-1.jpg");
+    background-image: url("/img/nav-bottom-1.jpg");
     background-size: cover;
     background-position: center;
 }
@@ -287,7 +287,7 @@ html {
 #header-bottom .mightlike .left {
     flex: 1;
     margin-right: 15px;
-    background-image: url('Pro3-images/might-like-left.jpg');
+    background-image: url('/img/might-like-left.jpg');
     background-position: center;
     background-size: cover;
     height: 750px;
@@ -317,7 +317,7 @@ html {
 }
 #header-bottom .mightlike .right {
     flex: 1;
-    background-image: url('Pro3-images/might-like-right.jpg');
+    background-image: url('/img/might-like-right.jpg');
     background-position: center;
     height: 750px;
     background-size: cover;
