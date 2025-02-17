@@ -15,7 +15,4 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @Query("SELECT u FROM User u WHERE u.fullName LIKE %:keyword%")
     List<User> findByFullNameContaining(@Param("keyword") String keyword);
-
-    @Query("SELECT COUNT(u) FROM User u")
-    long countTotalUsers();
 }

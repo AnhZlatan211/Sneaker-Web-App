@@ -10,9 +10,9 @@ import java.util.List;
 @Service
 public class UserServiceImp implements UserService{
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
-    private PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
     public UserServiceImp(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
@@ -51,7 +51,7 @@ public class UserServiceImp implements UserService{
 
     @Override
     public Long countTotalUsers() {
-        return userRepository.countTotalUsers();
+        return userRepository.count();
     }
 
 }

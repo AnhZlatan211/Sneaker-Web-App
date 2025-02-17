@@ -1,4 +1,4 @@
-package project01.ecommerce.service;
+package project01.ecommerce.security;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

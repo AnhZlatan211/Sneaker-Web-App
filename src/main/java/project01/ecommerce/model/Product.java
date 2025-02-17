@@ -10,12 +10,12 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @Column(name = "name", unique = true)
     private String name;
     private double price;
     private int stock;
     private String imageUrl;
+    private String description;
 
     @OneToMany(mappedBy = "product")
     private List<OrderDetail> orderDetails;
@@ -26,13 +26,21 @@ public class Product {
     public Product() {
     }
 
-    public Product(String name, double price, int stock, String imageUrl) {
+    public Product(String name, double price, int stock, String imageUrl, String description) {
         this.name = name;
         this.price = price;
         this.stock = stock;
         this.imageUrl = imageUrl;
+        this.description = description;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
     public String getName() {
         return name;
     }
@@ -63,5 +71,13 @@ public class Product {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

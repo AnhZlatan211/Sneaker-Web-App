@@ -6,9 +6,6 @@ body {
     font-family: cursive;
     background-color: #171821;
 }
-/* .container {
-    position: relative;
-} */
 .container .nav {
     width: 19%;
     height: 100%;
@@ -74,7 +71,6 @@ body {
 }
 .container .content {
     width: 81%;
-    height: 100vh;
     position: absolute;
     background-color: #171821;
     right:0;
@@ -82,6 +78,7 @@ body {
     flex-direction: column;
     gap:20px;
     padding-left: 20px;
+    padding-bottom: 20px;
 }
 .container .content .header {
     width: 97%;
@@ -139,11 +136,11 @@ body {
 }
 .container .content .mid {
     width: 97%;
+    min-height: 425px;
     height: 100%;
     background-color: #21222D;
     border-radius: 15px;
     padding: 30px;
-    margin-bottom: 20px;
 }
 .container .content .mid p {
     margin: 0;
@@ -405,10 +402,58 @@ body {
 }
 
 
-
-
-
-
+/*Create Product*/
+.container .content .mid .create {
+    display: flex;
+    flex-direction: column;
+    padding: 35px 75px 30px 50px;
+    background-color:#1b1c27;
+    border-radius: 10px;
+    margin-left: 17%;
+    margin-right: 3%;
+}
+.container .content .mid .create .row{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #DBDFEA;
+}
+.container .content .mid .create .row input,textarea{
+    width: 100%;
+    padding: 10px 20px 10px 10px;
+    background-color: #21222D;
+    color: #DBDFEA;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    margin: 10px 0px;
+}
+.container .content .mid .create .row textarea {
+    margin-left: 20px;
+    height: 150px;
+    resize: none;
+    margin-bottom: 20px;
+}
+.container .content .mid .create .row button {
+    background-color: #797b84;
+    border-radius: 100px;
+    padding: 10px 15px;
+    margin-left: 15px;
+    transition: 0.1s;
+    border: none;
+    outline: none;
+}
+.container .content .mid .create .row button:last-child {
+    background-color:#DFF2FF;
+}
+.container .content .mid .create .row button:hover {
+    background-color: #5a5c60;
+    cursor: pointer;
+}
+.container .content .mid .create .row button:last-child:hover {
+    background-color:#bdcfda;
+}
 
 
 

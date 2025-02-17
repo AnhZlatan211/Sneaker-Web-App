@@ -55,14 +55,14 @@
                 <i class="fa-solid fa-users" style="color:#5900ff"></i>
                 <div class="subcard">
                     <h3>Total Users</h3>
-                    <p>[[${totalUsers}]] (This month)</p>
+                    <p>+ [[${totalUsers}]] (This month)</p>
                 </div>
             </div>
             <div class="card" style="background: linear-gradient(45deg, #ffa113, #25ff4a)">
                 <i class="fa-solid fa-shop" style="color:#ffa113"></i>
                 <div class="subcard">
                     <h3>Total Products</h3>
-                    <p>100 (This month)</p>
+                    <p>+ [[${totalProducts}]] (This month)</p>
                 </div>
             </div>
             <div class="card" style="background: linear-gradient(45deg, #ff0707, #ff08da)">
@@ -114,7 +114,7 @@
                         <td th:text="${user.age}"/>
                         <td th:text="${user.gender}"/>
                         <td th:text="${user.role}"/>
-                        <td ><a class="delete" th:href="'/admin/delete/' + ${user.id}"><i class="fa-solid fa-trash-can"></i></a></td>
+                        <td ><a class="delete" th:href="'/admin/user/delete/' + ${user.id}"><i class="fa-solid fa-trash-can"></i></a></td>
                     </tr>
                 </table>
             </div>
