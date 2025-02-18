@@ -79,7 +79,7 @@ html {
     display: flex;
     justify-content: space-evenly;
 }
-#navi .right {
+#navi .right,.right-guest {
     padding-right:25px
 }
 #navi .right i {
@@ -92,6 +92,28 @@ html {
 }
 #navi .right i:hover {
     background-color: crimson;
+}
+#navi .right-guest a {
+    text-decoration:none;
+    display: inline-block;
+    color:white;
+    font-size: 15px;
+    padding: 10px 15px;
+    margin-right: 5px;
+    border-radius: 20px;
+    transition: 0.1s;
+    background-color:crimson;
+    margin-right: 15px;
+}
+#navi .right-guest a:first-child {
+    background-color:white;
+    color: black
+}
+#navi .right-guest a:hover {
+    background-color:  rgb(184, 17, 50);
+}
+#navi .right-guest a:first-child:hover {
+    background-color:  rgb(215, 215, 215);
 }
 #navi-bottom {
     margin-top: 74px;

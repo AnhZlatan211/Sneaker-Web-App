@@ -38,4 +38,12 @@ public class CartItem {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
 }

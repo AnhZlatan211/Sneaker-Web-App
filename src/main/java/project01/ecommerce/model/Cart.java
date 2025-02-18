@@ -18,6 +18,9 @@ public class Cart {
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
     private List<CartItem> cartItems;
 
+    public Cart() {
+    }
+
     public Cart(User user) {
         this.user = user;
     }
@@ -28,5 +31,13 @@ public class Cart {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

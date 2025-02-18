@@ -2,11 +2,10 @@ package project01.ecommerce.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import project01.ecommerce.model.User;
+import project01.ecommerce.service.CartService;
+import project01.ecommerce.service.ProductService;
 import project01.ecommerce.service.UserService;
 
 @Controller
@@ -14,9 +13,13 @@ import project01.ecommerce.service.UserService;
 public class UserController {
 
     private final UserService userService;
+    private final ProductService productService;
+    private final CartService cartService;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, ProductService productService, CartService cartService) {
         this.userService = userService;
+        this.productService = productService;
+        this.cartService = cartService;
     }
 
     @GetMapping()
@@ -51,7 +54,16 @@ public class UserController {
         return "home";
     }
     @GetMapping(value = "/sneaker")
-    public String sneakersPage(){
+    public String sneakersPage(Model model){
+        model.addAttribute("products", productService.getListOfProducts());
         return "sneakers";
+    }
+    @PostMapping(value = "/sneaker/add")
+    public String addToCart(Model model,
+                            @RequestParam Long productId,
+                            @RequestParam int quantity) {
+        cartService.addToCart(productId, quantity);
+        model.addAttribute("messageAddToCart", "Added to cart!");
+        return "redirect:/sneaker";
     }
 }
