@@ -11,9 +11,9 @@
 <div th:fragment="navi" id="navi">
   <ul class="left">
     <i class="fa-brands fa-sketch"></i>
-    <li><a href="">New & Featured</a>
+    <li><a th:href="@{/home}">New & Featured</a>
       <ul class="subnav">
-        <li><a href="">New & Featured</a>
+        <li><a>New & Featured</a>
           <ul class="subnav-item">
             <li><a href="">New Arrivals</a></li>
             <li><a href="">Latest Shoes</a></li>
@@ -61,7 +61,7 @@
         </li>
       </ul>
     </li>
-    <li><a href="">Men</a>
+    <li><a th:href="@{/sneaker}">Men</a>
       <ul class="subnav">
         <li><a href="">Shoes</a>
           <ul class="subnav-item">
@@ -107,7 +107,7 @@
         </li>
       </ul>
     </li>
-    <li><a href="">Women</a>
+    <li><a th:href="@{/sneaker}">Women</a>
       <ul class="subnav">
         <li><a href="">Shoes</a>
           <ul class="subnav-item">
@@ -156,7 +156,7 @@
         </li>
       </ul>
     </li>
-    <li><a href="">Kids</a>
+    <li><a th:href="@{/sneaker}">Kids</a>
       <ul class="subnav">
         <li><a href="">Kids By Age</a>
           <ul class="subnav-item">
@@ -207,7 +207,7 @@
         </li>
       </ul>
     </li>
-    <li><a href="">Sale</a>
+    <li><a th:href="@{/sneaker}">Sale</a>
       <ul class="subnav">
         <li><a href="">Featured</a>
           <ul class="subnav-item">
@@ -234,7 +234,7 @@
         </li>
       </ul>
     </li>
-    <li><a href="">Sneakers</a></li>
+    <li><a th:href="@{/sneaker}">Sneakers</a></li>
   </ul>
   <div class="right">
     <a style="cursor: pointer;" onclick="displaysearch()"><i class="fa-solid fa-magnifying-glass"></i></a>

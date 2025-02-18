@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AnhSneaker</title>
+  <!--    <link rel="short icon" type="image/png" href="Pro2-images/profile .png">-->
+  <link rel="stylesheet" th:href="@{/css/user.css}">
+  <script src="https://kit.fontawesome.com/7b50466486.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div th:replace="~{fragments/layout :: navi}"></div>
+
+<div id="sneaker">
+  <h1>Let's gooo!</h1>
+</div>
+
+<div id="discount">
+  <button>GET 20% OFF</button>
+</div>
+
+<div id="footer-up">
+  <div class="item">
+    <p>Icons</p>
+    <a href="">Air Force 1</a>
+    <a href="">Huarache</a>
+    <a href="">Air Max 90</a>
+    <a href="">Air Max 95</a>
+  </div>
+  <div class="item">
+    <p>Shoes</p>
+    <a href="">All Shoes</a>
+    <a href="">Custom Shoes</a>
+    <a href="">Jordan Shoes</a>
+    <a href="">Running Shoes</a>
+  </div>
+  <div class="item">
+    <p>Clothing</p>
+    <a href="">All Clothing</a>
+    <a href="">Modest Wear</a>
+    <a href="">Hoodies & Pullovers</a>
+    <a href="">Shirts & Tops</a>
+  </div>
+  <div class="item">
+    <p>Kids'</p>
+    <a href="">Infant & Toddler Shoes</a>
+    <a href="">Kids' Shoes</a>
+    <a href="">Kids' Jordan Shoes</a>
+    <a href="">Kids' Basketball Shoes</a>
+  </div>
+</div>
+
+<div th:replace="~{fragments/layout :: footer}"></div>
+
+<!--Display:none-->
+<div id="logout">
+  <div action="" class="container">
+    <h3>Are you sure you want to log out?</h3>
+    <div class="select">
+      <a style="cursor: pointer;" onclick="hidelogout()">Cancel</a>
+      <a th:href="@{/logout}">Yes</a>
+    </div>
+  </div>
+</div>
+<div id="search">
+  <div class="container">
+    <a href=""><i class="fa-brands fa-docker"></i></a>
+    <form action="" class="for">
+      <input type="text" placeholder="Search...">
+    </form>
+    <a style="cursor: pointer;" onclick="hidesearch()">Cancle</a>
+  </div>
+</div>
+<script>
+// Hide 'navi'
+var prePos = 0;
+window.onscroll = function() {
+  var currentPos = window.pageYOffset;
+  if( prePos > currentPos) {
+    document.getElementById('navi').style.top = "0px";
+  }
+  else {
+    document.getElementById('navi').style.top = "-75px"
+  }
+  prePos = currentPos;
+}
+
+//Log out and Search
+var logout = document.getElementById('logout');
+var search = document.getElementById('search');
+function displaysearch() {
+  search.style.display = "block";
+}
+function hidesearch() {
+  search.style.display = "none";
+}
+function displaylogout() {
+  logout.style.display = "block";
+}
+function hidelogout() {
+  logout.style.display = "none";
+}
+window.onclick = function(event) {
+  if(event.target == search) {
+    search.style.display = "none";
+  }
+  if(event.target == logout) {
+    logout.style.display = "none";
+  }
+}
+
+//Slider
+const container = document.querySelector(".container");
+const firstCardWidth = container.querySelector(".card").offsetWidth;
+const arrowBtns = document.querySelectorAll(".angle i");
+
+let isDragging = false, startX, startScrollLeft;
+
+// Add event listeners for the arrow buttons to scroll the container left and right
+arrowBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+        container.scrollLeft += btn.id === "left" ? -firstCardWidth : firstCardWidth;
+    });
+});
+const dragStart = (e) => {
+    isDragging = true;
+    container.classList.add("dragging");
+    // Records the initial cursor and scroll position of the container
+    startX = e.pageX;
+    startScrollLeft = container.scrollLeft;
+}
+const dragging = (e) => {
+    if(!isDragging) return; // if isDragging is false return from here
+    // Updates the scroll position of the container based on the cursor movement
+    container.scrollLeft = startScrollLeft - (e.pageX - startX);
+}
+const dragStop = () => {
+    isDragging = false;
+    container.classList.remove("dragging");
+}
+container.addEventListener("mousedown", dragStart);
+container.addEventListener("mousemove", dragging);
+document.addEventListener("mouseup", dragStop);
+    </script>
+</body>
+</html>

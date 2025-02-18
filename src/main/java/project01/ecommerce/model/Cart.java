@@ -18,7 +18,8 @@ public class Cart {
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
     private List<CartItem> cartItems;
 
-    public Cart() {
+    public Cart(User user) {
+        this.user = user;
     }
 
     public Long getId() {

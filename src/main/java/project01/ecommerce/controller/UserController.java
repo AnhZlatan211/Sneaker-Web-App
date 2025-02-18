@@ -50,4 +50,8 @@ public class UserController {
     public String homePage(){
         return "home";
     }
+    @GetMapping(value = "/sneaker")
+    public String sneakersPage(){
+        return "sneakers";
+    }
 }

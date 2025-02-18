@@ -457,6 +457,13 @@ html {
     display: flex;
 }
 
+/*Sneakers Page */
+#sneaker {
+    margin-top:10vh;
+    min-height:100vh;
+    background-color: yellow;
+}
+
 /*Display: none */
 #logout {
     background-color:rgba(0,0,0,0.6);
@@ -549,3 +556,4 @@ html {
 #search .container a:last-child:hover {
     color:#996633;
 }
+
