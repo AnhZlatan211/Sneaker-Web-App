@@ -98,7 +98,7 @@ html {
     display: inline-block;
     color:white;
     font-size: 15px;
-    padding: 10px 15px;
+    padding: 8px 16px;
     margin-right: 5px;
     border-radius: 20px;
     transition: 0.1s;
@@ -483,8 +483,83 @@ html {
 #sneaker {
     margin-top:10vh;
     min-height:100vh;
-    background-color: yellow;
 }
+#sneaker .title-up {
+    display: flex;
+    flex-direction: row;
+    padding: 20px 15%;
+    justify-content:space-between;
+    align-items:center;
+    background-color: #F7F7F7;
+}
+#sneaker .title-down {
+    padding: 20px 4%;
+}
+#sneaker .title-down h1{
+    margin-top: 10px;
+}
+#sneaker .content {
+    padding:0px 4%;
+    display:flex;
+    flex-direction:row;
+    gap: 1%;
+}
+#sneaker .content .left{
+    flex:1;
+    height: 100%;
+    padding: 20px 0px;
+    color: black;
+    background-color:white;
+}
+#sneaker .content .left li {
+    list-style:none;
+}
+#sneaker .content .left li a{
+    width:90%;
+    text-decoration:none;
+    display: inline-block;
+    padding: 15px 0px;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    list-style:none;
+    border-bottom: 1px solid #DEDEDE;
+}
+#sneaker .content .right{
+    flex:4;
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    gap:2%;
+    justify-content:center;
+}
+#sneaker .content .right .ele{
+    margin-bottom: 50px;
+    width:32%;
+}
+#sneaker .content .right .ele img{
+    margin-bottom:10px;
+    width:100%;
+}
+#sneaker .content .right .ele h3 {
+    margin:10px 0px;
+}
+#sneaker .content .right .ele button {
+    display:block;
+    width:100%;
+    border:none;
+    padding: 12px 25px;
+    margin: 0px auto;
+    border-radius: 5px;
+    font-weight:bold;
+    color: white;
+    background:linear-gradient(90deg, #ff007a, #ff8c00);
+}
+#sneaker .content .right .ele button:hover {
+    cursor:pointer;
+    background:linear-gradient(90deg,rgb(228, 0, 110),rgb(228, 125, 0));
+}
+
 
 /*Display: none */
 #logout {

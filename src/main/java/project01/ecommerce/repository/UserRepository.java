@@ -12,7 +12,6 @@ import java.util.Optional;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByUsername(String username);
-
     @Query("SELECT u FROM User u WHERE u.fullName LIKE %:keyword%")
     List<User> findByFullNameContaining(@Param("keyword") String keyword);
 }

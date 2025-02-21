@@ -12,8 +12,6 @@ import project01.ecommerce.repository.CartRepository;
 import project01.ecommerce.repository.ProductRepository;
 import project01.ecommerce.repository.UserRepository;
 
-import java.util.Optional;
-
 @Service
 public class CartServiceImp implements CartService{
     private final UserRepository userRepository;

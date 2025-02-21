@@ -55,13 +55,14 @@ public class UserController {
     }
     @GetMapping(value = "/sneaker")
     public String sneakersPage(Model model){
+        model.addAttribute("totalProduct", productService.countTotalProducts());
         model.addAttribute("products", productService.getListOfProducts());
         return "sneakers";
     }
     @PostMapping(value = "/sneaker/add")
     public String addToCart(Model model,
-                            @RequestParam Long productId,
-                            @RequestParam int quantity) {
+                            @RequestParam("productId") Long productId,
+                            @RequestParam("quantity") int quantity) {
         cartService.addToCart(productId, quantity);
         model.addAttribute("messageAddToCart", "Added to cart!");
         return "redirect:/sneaker";
