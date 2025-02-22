@@ -25,32 +25,41 @@
   </div>
   <div class="content">
     <div class="left">
-      <table>
-        <tr>
-          <th>quantity</th>
-          <th>name</th>
-          <th>price</th>
-          <th>stock</th>
-          <th>imageUrl</th>
-          <th>description</th>
-        </tr>
-        <tr th:each="item : ${cartItems}">
-          <td th:text="${item.quantity}"></td>
-          <td th:text="${item.product.name}"></td>
-          <td th:text="${item.product.price}"></td>
-          <td th:text="${item.product.stock}"></td>
-          <td th:text="${item.product.imageUrl}"></td>
-          <td th:text="${item.product.description}"></td>
-        </tr>
-      </table>
-      <div></div>
+      <div class="ele" th:each="item : ${cartItems}">
+        <div class="pro-img">
+          <img th:src="${item.product.imageUrl}" alt="product">
+        </div>
+        <div class="pro-info">
+          <div class="info1" style="padding-bottom: 10px;">
+            <h3 th:text="${item.product.name}"></h3>
+            <h3 th:text="'$' + ${item.product.price}"></h3>
+          </div>
+          <p style="padding-bottom: 20px;">Available in Ha Noi</p>
+          <div class="info2">
+            <p>Description: Special, limited products</p>
+            <i class="fa-solid fa-trash"></i>
+          </div>
+          <p th:text="'Style number: NDA-' + ${item.product.stock} + ${item.id}" style="padding: 5px 0px;"></p>
+          <p th:text="'Quantity: ' + ${item.quantity}" style="padding-bottom: 20px;"></p>
+          <select>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+      </div>
     </div>
     <div class="right">
-      <div>
-        <h4><i class="fa-solid fa-truck-fast"></i>You’ve earned free shipping</h4>
-        <h4><i class="fa-solid fa-rotate-right"></i>Free returns on all qualifying orders</h4>
-        <p>APPLY A PROMO CODE (If You Have)</p>
-        <input type="number" placeholder="Enter a promo code ..."><button>APPLY</button>
+        <div class="ship">
+          <h4 style="color:#009A2C"><i class="fa-solid fa-truck-fast"></i>  YOU'VE EARNED FREE SHIPPING</h4>
+          <h4><i class="fa-solid fa-rotate-right"></i>  FREE RETURNS ON ALL QUALIFYING ORDERS</h4>
+        </div>
+        <p class="promo">APPLY A PROMO CODE (If You Have)</p>
+        <div class="promo1">
+          <input type="number" placeholder="Enter a promo code ..."><button>APPLY</button>
+        </div>
         <div class="price">
           <h4>Subtotal</h4>
           <h4>$165.00</h4>
@@ -59,18 +68,17 @@
           <h4>Shipping costs</h4>
           <h4>FREE</h4>
         </div>
-        <div class="price">
-          <h4>Estimated sales tax <i class="fa-solid fa-info"></i></h4>
+        <div class="price" style="margin-bottom: 15px;">
+          <h4>Estimated sales tax</h4>
           <i class="fa-solid fa-minus"></i>
         </div>
-        <div class="price">
-          <h3>Estimated total<i class="fa-solid fa-info"></i></h3>
+        <div class="price-total">
+          <h3>ESTIMATED TOTAL</h3>
           <h3>$165.00</h3>
         </div>
-        <button>CHECKOUT</button>
-        <button><i class="fa-brands fa-paypal"></i>PayPal</button>
-        <p>By continuing, I confirm that I have read and accept the Terms and Conditions. and the Privacy Policy.</p>
-      </div>
+        <button class="check1">CHECKOUT</button><br>
+        <button class="check2"><i class="fa-brands fa-paypal"></i> PayPal</button>
+        <p class="policy">By continuing, I confirm that I have read and accept the Terms and Conditions. and the Privacy Policy.</p>
     </div>
   </div>
   <div class="sub-content">
