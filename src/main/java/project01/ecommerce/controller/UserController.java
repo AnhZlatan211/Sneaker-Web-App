@@ -79,8 +79,14 @@ public class UserController {
         Optional<User> user = userService.findByUserName(principal.getName());
         Cart cart = cartService.getCartByUser(user.get().getId());
         List<CartItem> cartItems = cartService.getCartItemsFix(cart.getId());
-
+        double totalPrice = cartService.calculateTotalPrice(cartItems);
         model.addAttribute("cartItems", cartItems);
+        model.addAttribute("totalPrice", totalPrice);
         return "cart";
+    }
+    @GetMapping(value = "/cart/delete/{id}")
+    public String deleteCartItem(@PathVariable Long id) {
+        cartService.deleteCartItem(id);
+        return "redirect:/cart";
     }
 }

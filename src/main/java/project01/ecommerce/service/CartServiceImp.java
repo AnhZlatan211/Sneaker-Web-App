@@ -46,6 +46,11 @@ public class CartServiceImp implements CartService{
     }
 
     @Override
+    public void deleteCartItem(Long id) {
+        cartItemRepository.deleteById(id);
+    }
+
+    @Override
     public Cart getCartByUser(Long userId) {
         return cartRepository.findByUserId(userId);
     }
@@ -58,5 +63,10 @@ public class CartServiceImp implements CartService{
     @Override
     public List<CartItem> getCartItemsFix(Long cartId) {
         return cartItemRepository.findByCartId(cartId);
+    }
+
+    @Override
+    public double calculateTotalPrice(List<CartItem> cartItems) {
+        return cartItems.stream().mapToDouble(item -> item.getProduct().getPrice()).sum();
     }
 }

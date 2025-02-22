@@ -626,22 +626,31 @@ html {
 #cart .content .left .ele .pro-info {
     width:100%;
 }
+#cart .content .left .ele .pro-info p{
+    color:#858585;
+}
 #cart .content .left .ele .info1,.info2{
     display:flex;
     justify-content:space-between;
+    align-items:center;
 }
-#cart .content .left .ele .info2 i:hover{
+#cart .content .left .ele .info2 a{
+    text-decoration:none;
+    color:black;
+}
+#cart .content .left .ele .info2 i{
     font-size: 21px;
     padding:10px;
     border-radius: 100px;
-    background-color:#E3E3E3;
 }
 #cart .content .left .ele .info2 i:hover{
     background-color:#E3E3E3;
     cursor:pointer;
 }
-
-
+#cart .content .left .ele select{
+    border: 1px solid #ACACAC;
+    padding: 12px 15px;
+}
 #cart .content .right {
     flex: 1.5;
 }
@@ -660,6 +669,10 @@ html {
      border-radius:3px;
      background-color: #ECECEC;
  }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+}
 #cart .content .right .promo1 input {
       width: 65%;
       font-size: 16px;
@@ -707,8 +720,14 @@ html {
     padding: 18px 0px ;
     margin:0px 0px 10px 0px;
     border-radius:3px;
-    background-color: black;
     color:white;
+}
+#cart .content .right .check1 {
+    background: linear-gradient(90deg, #ff007a, #ff8c00);
+    border:none;
+}
+#cart .content .right .check1:hover {
+    background: linear-gradient(90deg,rgb(228, 0, 110),rgb(228, 125, 0));
 }
 #cart .content .right .check1:hover {
     cursor:pointer;
