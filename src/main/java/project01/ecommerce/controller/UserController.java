@@ -3,10 +3,17 @@ package project01.ecommerce.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import project01.ecommerce.model.Cart;
+import project01.ecommerce.model.CartItem;
+import project01.ecommerce.model.CartItemDTO;
 import project01.ecommerce.model.User;
 import project01.ecommerce.service.CartService;
 import project01.ecommerce.service.ProductService;
 import project01.ecommerce.service.UserService;
+
+import java.security.Principal;
+import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/")
@@ -66,5 +73,14 @@ public class UserController {
         cartService.addToCart(productId, quantity);
         model.addAttribute("messageAddToCart", "Added to cart!");
         return "redirect:/sneaker";
+    }
+    @GetMapping(value = "/cart")
+    public String cartPage(Principal principal, Model model) {
+        Optional<User> user = userService.findByUserName(principal.getName());
+        Cart cart = cartService.getCartByUser(user.get().getId());
+        List<CartItem> cartItems = cartService.getCartItemsFix(cart.getId());
+
+        model.addAttribute("cartItems", cartItems);
+        return "cart";
     }
 }

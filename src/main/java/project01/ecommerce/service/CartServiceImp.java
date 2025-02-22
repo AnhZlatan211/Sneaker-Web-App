@@ -3,14 +3,13 @@ package project01.ecommerce.service;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-import project01.ecommerce.model.Cart;
-import project01.ecommerce.model.CartItem;
-import project01.ecommerce.model.Product;
-import project01.ecommerce.model.User;
+import project01.ecommerce.model.*;
 import project01.ecommerce.repository.CartItemRepository;
 import project01.ecommerce.repository.CartRepository;
 import project01.ecommerce.repository.ProductRepository;
 import project01.ecommerce.repository.UserRepository;
+
+import java.util.List;
 
 @Service
 public class CartServiceImp implements CartService{
@@ -44,5 +43,20 @@ public class CartServiceImp implements CartService{
                 .orElseThrow(() -> new RuntimeException("Product not found"));
         CartItem cartItem = new CartItem(cart,product,quantity);
         cartItemRepository.save(cartItem);
+    }
+
+    @Override
+    public Cart getCartByUser(Long userId) {
+        return cartRepository.findByUserId(userId);
+    }
+
+//    @Override
+//    public List<CartItemDTO> getCartItems(Long cartId) {
+//        return cartRepository.findCartItemsWithProduct(cartId);
+//    }
+
+    @Override
+    public List<CartItem> getCartItemsFix(Long cartId) {
+        return cartItemRepository.findByCartId(cartId);
     }
 }

@@ -6,6 +6,7 @@ import project01.ecommerce.model.User;
 import project01.ecommerce.repository.UserRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImp implements UserService{
@@ -17,6 +18,11 @@ public class UserServiceImp implements UserService{
     public UserServiceImp(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+    }
+
+    @Override
+    public Optional<User> findByUserName(String username) {
+        return userRepository.findByUsername(username);
     }
 
     @Override

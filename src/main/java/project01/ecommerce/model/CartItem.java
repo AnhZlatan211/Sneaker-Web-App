@@ -46,4 +46,12 @@ public class CartItem {
     public void setCart(Cart cart) {
         this.cart = cart;
     }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
 }

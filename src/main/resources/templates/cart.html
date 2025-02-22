@@ -11,7 +11,7 @@
 <body>
 <div th:replace="~{fragments/layout :: navi}"></div>
 
-<div id="sneaker">
+<div id="cart">
   <div class="title">
     <div class="title-up">
       <h4>Free Delivery & Returns</h4>
@@ -19,32 +19,75 @@
       <h4>UP TO 60% OFF ENDS TOMORROW</h4>
     </div>
     <div class="title-down">
-      <p>Home - Sneakers</p>
-      <h1>All Shoes and Sneakers <span>([[${totalProduct}]])</span></h1>
+      <p>Home - Cart</p>
+      <h1>My Shopping Cart</h1>
     </div>
   </div>
   <div class="content">
     <div class="left">
-      <ul>
-        <li><a href="">New Trainers & Gear</a></li>
-        <li><a href="">Men</a></li>
-        <li><a href="">Woman</a></li>
-        <li><a href="">Kids</a></li>
-        <li><a href="">Sale</a></li>
-        <li><a href="">Sneakers</a></li>
-      </ul>
+      <table>
+        <tr>
+          <th>quantity</th>
+          <th>name</th>
+          <th>price</th>
+          <th>stock</th>
+          <th>imageUrl</th>
+          <th>description</th>
+        </tr>
+        <tr th:each="item : ${cartItems}">
+          <td th:text="${item.quantity}"></td>
+          <td th:text="${item.product.name}"></td>
+          <td th:text="${item.product.price}"></td>
+          <td th:text="${item.product.stock}"></td>
+          <td th:text="${item.product.imageUrl}"></td>
+          <td th:text="${item.product.description}"></td>
+        </tr>
+      </table>
+      <div></div>
     </div>
     <div class="right">
-      <form class="ele" th:action="@{/sneaker/add}" th:each="product : ${products}" method="post">
-        <input type="hidden" name="productId" th:value="${product.id}">
-        <input type="hidden" name="quantity" value="1">
-        <img th:src="${product.imageUrl}" alt="product">
-        <p style="color: #9E3500; margin-bottom:5px; font-weight:bold">Available in Ha Noi</p>
-        <h3 th:text="${product.name}"></h3>
-        <p style="color: #777777" th:text="'Limited quantity, only ' + ${product.stock} + ' left'">product.</p>
-        <h3 th:text="'$ ' + ${product.price}"></h3>
-        <button type="submit">Add to cart</button>
-      </form>
+      <div>
+        <h4><i class="fa-solid fa-truck-fast"></i>You’ve earned free shipping</h4>
+        <h4><i class="fa-solid fa-rotate-right"></i>Free returns on all qualifying orders</h4>
+        <p>APPLY A PROMO CODE (If You Have)</p>
+        <input type="number" placeholder="Enter a promo code ..."><button>APPLY</button>
+        <div class="price">
+          <h4>Subtotal</h4>
+          <h4>$165.00</h4>
+        </div>
+        <div class="price">
+          <h4>Shipping costs</h4>
+          <h4>FREE</h4>
+        </div>
+        <div class="price">
+          <h4>Estimated sales tax <i class="fa-solid fa-info"></i></h4>
+          <i class="fa-solid fa-minus"></i>
+        </div>
+        <div class="price">
+          <h3>Estimated total<i class="fa-solid fa-info"></i></h3>
+          <h3>$165.00</h3>
+        </div>
+        <button>CHECKOUT</button>
+        <button><i class="fa-brands fa-paypal"></i>PayPal</button>
+        <p>By continuing, I confirm that I have read and accept the Terms and Conditions. and the Privacy Policy.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sub-content">
+    <div class="ele">
+      <i class="fa-solid fa-lock"></i>
+      <h3>SECURE PAYMENTS</h3>
+      <p>SSL ENCRYPTION ON ALL TRANSACTIONS</p>
+    </div>
+    <div class="ele">
+      <i class="fa-solid fa-truck-fast"></i>
+      <h3>FREE & FAST RETURN</h3>
+      <p>FREE RETURN ON ALL QUALIFYING ORDERS</p>
+    </div>
+    <div class="ele">
+      <i class="fa-solid fa-comments"></i>
+      <h3>ACTIVE SUPPORT</h3>
+      <p>GET IN TOUCH IF YOU HAVE A PROBLEM</p>
     </div>
   </div>
 </div>
