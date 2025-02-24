@@ -13,6 +13,7 @@ import java.util.List;
 @Repository
 public interface CartRepository extends JpaRepository<Cart, Long> {
     Cart findByUserId(Long userId);
+
 //    @Query("SELECT new project01.ecommerce.model.CartItemDTO(ci.quantity, p.name, p.price, p.stock, p.imageUrl, p.description)"
 //            + "FROM CartItem c JOIN c.product p WHERE c.cart.id = :cartId")
 //    List<CartItemDTO> findCartItemsWithProduct(@Param("cartId") Long cartId);

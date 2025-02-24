@@ -9,8 +9,9 @@ public interface CartService {
     void createCart(Cart cart);
     void addToCart(Long productId, int quantity);
     void deleteCartItem(Long id);
+    void clearCartItems(Long cartId);
     List<CartItem> getCartItems(Long cartId);
-    Long countTotalCartItems();
+    Long countCartItemsByCartId(Long cartId);
     double calculateTotalPrice(List<CartItem> cartItems);
 
     //    List<CartItemDTO> getCartItems(Long cartId);

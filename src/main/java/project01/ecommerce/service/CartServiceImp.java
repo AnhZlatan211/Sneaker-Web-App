@@ -1,5 +1,6 @@
 package project01.ecommerce.service;
 
+import jakarta.transaction.Transactional;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -55,14 +56,21 @@ public class CartServiceImp implements CartService{
         cartItemRepository.deleteById(id);
     }
 
+    @Transactional
+    @Override
+    public void clearCartItems(Long cartId) {
+        cartItemRepository.deleteAllByCartId(cartId);
+    }
+
     @Override
     public List<CartItem> getCartItems(Long cartId) {
         return cartItemRepository.findByCartId(cartId);
     }
 
     @Override
-    public Long countTotalCartItems() {
-        return cartItemRepository.count();
+    public Long countCartItemsByCartId(Long cartId) {
+        List<CartItem> cartItems = cartItemRepository.findByCartId(cartId);
+        return (long) cartItems.size();
     }
 
     @Override

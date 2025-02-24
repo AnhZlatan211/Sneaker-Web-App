@@ -24,7 +24,7 @@
         <a th:href="@{/admin/product}" style="color: #252525;"><i class="fa-solid fa-shop"></i>  Products</a>
       </div>
       <div class="element">
-        <a href=""><i class="fa-solid fa-clock-rotate-left"></i>  Orders History</a>
+        <a th:href="@{/admin/order}"><i class="fa-solid fa-clock-rotate-left"></i>  Orders History</a>
       </div>
       <div class="element">
         <a href=""><i class="fa-solid fa-money-check-dollar"></i>  Stock</a>
@@ -70,7 +70,7 @@
         <i class="fa-solid fa-truck-fast" style="color:#ff5050"></i>
         <div class="subcard">
           <h3>Total Orders</h3>
-          <p>100 (This month)</p>
+          <p>+ [[${totalOrders}]] (This month)</p>
         </div>
       </div>
       <div class="card" style="background: linear-gradient(45deg,#2f32fd, #05e2ff)">

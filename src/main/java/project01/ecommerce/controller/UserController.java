@@ -113,7 +113,7 @@ public class UserController {
         model.addAttribute("order", order);
         model.addAttribute("totalPrice", totalPrice);
         model.addAttribute("cartItems", cartItems);
-        model.addAttribute("totalCartItems", cartService.countTotalCartItems());
+        model.addAttribute("totalCartItems", cartService.countCartItemsByCartId(cart.getId()));
         return "/checkout";
     }
     @PostMapping(value = "/checkout/create-order")
@@ -133,6 +133,7 @@ public class UserController {
         }).collect(Collectors.toList());
         order.setOrderDetails(orderDetails);
         orderService.save(order);
+        cartService.clearCartItems(cart.getId());
         model.addAttribute("message", "Create Order Successfully!");
         return "/checkout";
     }

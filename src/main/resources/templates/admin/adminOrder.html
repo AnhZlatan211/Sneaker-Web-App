@@ -5,6 +5,7 @@
     <title>Admin</title>
     <script src="https://kit.fontawesome.com/7b50466486.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" th:href="@{/css/admin.css}">
+    <link rel="stylesheet" href="/static/css/admin.css">
 </head>
 <body>
 <div class="container">
@@ -16,14 +17,14 @@
             <div class="element">
                 <a th:href="@{/admin}"><i class="fa-solid fa-gauge"></i>  Dashboard</a>
             </div>
-            <div class="element" style="background-color: #DFF2FF; border:none;border-radius:  100px 0px 0px 100px">
-                <a th:href="@{/admin/user}" style="color: #252525;"><i class="fa-solid fa-user"></i>  Users</a>
+            <div class="element">
+                <a th:href="@{/admin/user}"><i class="fa-solid fa-user"></i>  Users</a>
             </div>
             <div class="element">
                 <a th:href="@{/admin/product}"><i class="fa-solid fa-shop"></i>  Products</a>
             </div>
-            <div class="element">
-                <a th:href="@{/admin/order}"><i class="fa-solid fa-clock-rotate-left"></i>  Orders History</a>
+            <div class="element" style="background-color: #DFF2FF; border:none;border-radius:  100px 0px 0px 100px">
+                <a th:href="@{/admin/order}" style="color: #252525;"><i class="fa-solid fa-clock-rotate-left"></i>  Orders History</a>
             </div>
             <div class="element">
                 <a href=""><i class="fa-solid fa-money-check-dollar"></i>  Stock</a>
@@ -81,30 +82,35 @@
             </div>
         </div>
         <div class="mid">
-            <p>Manage user lists</p>
+            <p>Manage Order lists</p>
             <div class="category">
-                <form class="search" th:action="@{/admin/user/search}" method="post">
+                <form class="search" th:action="@{/admin/product/search}" method="post">
                     <input type="text" name="keyword" placeholder="Search by name...">
-                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
             </div>
+            <div th:if="${messageDeleteProduct} != null">[[${messageDeleteProduct}]]</div>
             <div class="tablelist">
                 <table >
                     <tr>
-                        <th>Username</th>
-                        <th>Full name</th>
-                        <th>Age</th>
-                        <th>Gender</th>
-                        <th>Role</th>
+                        <th>Recipient Name</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Note</th>
+                        <th>Create At</th>
+                        <th>Total Price</th>
+                        <th>Status</th>
                         <th>Delete</th>
                     </tr>
-                    <tr th:each="user : ${users}">
-                        <td th:text="${user.username}"/>
-                        <td th:text="${user.fullName}"/>
-                        <td th:text="${user.age}"/>
-                        <td th:text="${user.gender}"/>
-                        <td th:text="${user.role}"/>
-                        <td ><a class="delete" th:href="'/admin/user/delete/' + ${user.id}"><i class="fa-solid fa-trash-can"></i></a></td>
+                    <tr th:each="order : ${orders}">
+                        <td th:text="${order.recipientName}"/>
+                        <td th:text="${order.phone}"/>
+                        <td th:text="${order.address}"/>
+                        <td th:text="${order.note}"/>
+                        <td th:text="${order.createdAt}"/>
+                        <td th:text="'$' + ${order.totalPrice}"/>
+                        <td th:text="${order.status}"/>
+                        <td ><a class="delete"><i class="fa-solid fa-trash-can"></i></a></td>
                     </tr>
                 </table>
             </div>

@@ -54,7 +54,8 @@
       </form>
     </div>
     <div class="right">
-      <p class="promo" th:text="'ORDER DETAILS' + (${totalCartItems})"></p>
+      <p class="promo" th:if="${totalCartItems} != null" th:text="'ORDER DETAILS ' + '(' + ${totalCartItems} + ')'"></p>
+      <p class="promo" th:if="${totalCartItems} == null">ORDER DETAILS (0)</p>
       <div class="ele" th:each="item : ${cartItems}">
         <div class="pro-img">
           <img th:src="${item.product.imageUrl}" alt="product">
