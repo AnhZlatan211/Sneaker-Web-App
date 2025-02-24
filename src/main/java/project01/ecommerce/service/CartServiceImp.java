@@ -26,6 +26,11 @@ public class CartServiceImp implements CartService{
     }
 
     @Override
+    public void createCart(Cart cart) {
+        cartRepository.save(cart);
+    }
+
+    @Override
     public void addToCart(Long productId, int quantity) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication == null || !authentication.isAuthenticated()) {
@@ -51,18 +56,13 @@ public class CartServiceImp implements CartService{
     }
 
     @Override
-    public Cart getCartByUser(Long userId) {
-        return cartRepository.findByUserId(userId);
+    public List<CartItem> getCartItems(Long cartId) {
+        return cartItemRepository.findByCartId(cartId);
     }
 
-//    @Override
-//    public List<CartItemDTO> getCartItems(Long cartId) {
-//        return cartRepository.findCartItemsWithProduct(cartId);
-//    }
-
     @Override
-    public List<CartItem> getCartItemsFix(Long cartId) {
-        return cartItemRepository.findByCartId(cartId);
+    public Long countTotalCartItems() {
+        return cartItemRepository.count();
     }
 
     @Override

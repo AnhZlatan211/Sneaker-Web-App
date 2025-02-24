@@ -747,6 +747,211 @@ input::-webkit-inner-spin-button {
     font-size:12px;
 }
 
+/*Checkout Page*/
+#checkout {
+    margin-top:10vh;
+    min-height:100vh;
+}
+#checkout .title-up {
+    display: flex;
+    flex-direction: row;
+    padding: 20px 15%;
+    justify-content:space-between;
+    align-items:center;
+    background-color: #F7F7F7;
+}
+#checkout .title-down {
+    padding: 20px 6%;
+}
+#checkout .title-down h1{
+    margin-top: 10px;
+}
+#checkout .sub-content{
+    display: flex;
+    gap: 5%;
+    margin-top:10vh;
+    padding: 0 15%;
+    justify-content:space-between;
+}
+#checkout .sub-content .ele{
+    flex:1;
+    background-color:white;
+    text-align:center;
+    padding: 30px;
+    border: 1px solid #DEDEDE;
+    border-radius: 10px;
+}
+#checkout .sub-content .ele i{
+    font-size:40px;
+}
+#checkout .sub-content .ele h3{
+    margin: 15px 0px 5px 0px;
+    font-size:20px;
+}
+#checkout .sub-content .ele p{
+    font-size:12px;
+}
+#checkout .content {
+    padding:0px 6%;
+    display:flex;
+    flex-direction:row;
+    gap: 3%;
+}
+#checkout .content .left {
+    flex: 2.5;
+}
+#checkout .content .left h3{
+     font-size: 19px;
+     padding: 20px 0px 20px 20px;
+     margin:18px 0px 12px 0px;
+     border-radius:3px;
+     background-color: #ECECEC;
+}
+#checkout .content .left form{
+    width: 100%;
+}
+#checkout .content .left label{
+    font-weight: bold;
+    font-size: 14px;
+}
+#checkout .content .left input[type="text"]{
+    padding: 20px 0 20px 15px;
+    background-color: white;
+    color:black;
+    font-size:15px;
+    border-radius: 3px;
+    border: 1px solid #888888;
+    width:100%;
+    margin: 8px 0px 15px 0px;
+}
+#checkout .content .left input[type="checkbox"]{
+    width: 16px;
+    height: 16px;
+    accent-color: black;
+    background-color: white;
+    border: 1px solid #888888;
+    margin: 0px 5px 15px 0px;
+}
+#checkout .content .left .checkbox{
+    font-weight: lighter;
+}
+#checkout .content .left button{
+    width: 50%;
+    font-size: 16px;
+    font-weight:bold;
+    padding: 18px 0px ;
+    margin-top: 15px;
+    border-radius:3px;
+    color:white;
+    background: linear-gradient(90deg, #ff007a, #ff8c00);
+    border:none;
+}
+#checkout .content .left button:hover {
+    cursor:pointer;
+    background: linear-gradient(90deg,rgb(228, 0, 110),rgb(228, 125, 0));
+}
+#checkout .content .left .message {
+    text-align:center;
+    padding: 20px 0px;
+    border: 1px solid #008626;
+    border-radius:3px;
+}
+#checkout .content .left .message i{
+    padding:10px;
+    margin-bottom: 10px;
+    background-color:#008626;
+    color:white;
+    border-radius:100px;
+}
+#checkout .content .left .message h3{
+    margin:0;
+    padding:0;
+    color:green;
+    background-color:white;
+}
+#checkout .content .right .ele {
+    padding: 20px;
+    margin-bottom:15px;
+    border: 1px solid #E3E3E3;
+    display:flex;
+    gap: 20px;
+}
+#checkout .content .right .ele p {
+    font-size: 15px;
+}
+#checkout .content .right .ele .pro-img img{
+    width:100px;
+}
+#checkout .content .right .ele .pro-info {
+    width:100%;
+}
+#checkout .content .right .ele .pro-info p{
+    color:#858585;
+}
+#checkout .content .right .ele .info1{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+#checkout .content .right {
+    flex: 1.5;
+}
+ #checkout .content .right .promo {
+     font-size: 16px;
+     padding: 20px 0px 20px 20px;
+     margin:18px 0px 12px 0px;
+     border-radius:3px;
+     background-color: #ECECEC;
+ }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+}
+#checkout .content .right .promo1 input {
+      width: 65%;
+      font-size: 16px;
+      padding: 20px 0px 20px 20px;
+      margin:0px 5% 12px 0px;
+      border-radius:3px;
+      border: 1px solid #ACACAC;
+}
+#checkout .content .right .promo1 {
+    padding-bottom:10px;
+    border-bottom: 1px solid #E3E3E3;
+}
+#checkout .content .right .promo1 button {
+    width: 30%;
+    font-size: 16px;
+    font-weight:bold;
+    padding: 20px 25px;
+    margin:0px 0px 12px 0px;
+    border-radius:3px;
+    background-color: #C0C0C0;
+    border: none;
+}
+#checkout .content .right .promo1 button:hover {
+    cursor:pointer;
+    background-color: #ACACAC;
+}
+#checkout .content .right .price {
+    display:flex;
+    justify-content:space-between;
+    padding: 3px 0px;
+}
+#checkout .content .right .price h4{
+    color: #858585;
+}
+#checkout .content .right .price-total {
+    display:flex;
+    justify-content:space-between;
+    padding: 25px 0px 25px 0px;
+    border-top: 1px solid #E3E3E3;
+}
+#checkout .content .right .policy {
+    font-size:12px;
+}
+
+
 /*Display: none */
 #logout {
     background-color:rgba(0,0,0,0.6);

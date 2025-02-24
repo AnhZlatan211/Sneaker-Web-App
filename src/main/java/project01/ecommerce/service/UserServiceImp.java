@@ -1,5 +1,7 @@
 package project01.ecommerce.service;
 
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import project01.ecommerce.model.User;
@@ -26,13 +28,13 @@ public class UserServiceImp implements UserService{
     }
 
     @Override
-    public User save(User user) {
+    public void save(User user) {
 
         if (user.getRole() == null || user.getRole().isEmpty()) {
             user.setRole("USER");
         }
         User userNew = new User(user.getUsername(), user.getFullName(), user.getAge(), user.getGender(), user.getRole(), passwordEncoder.encode(user.getPassword()), true);
-        return userRepository.save(userNew);
+        userRepository.save(userNew);
     }
 
     @Override
@@ -53,6 +55,13 @@ public class UserServiceImp implements UserService{
     @Override
     public List<User> findByNameContaining(String keyword) {
         return userRepository.findByFullNameContaining(keyword);
+    }
+
+    @Override
+    public User getCurrentUser() {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        return userRepository.findByUsername(username).orElseThrow(() ->
+                new UsernameNotFoundException("User not found with username: " + username));
     }
 
     @Override

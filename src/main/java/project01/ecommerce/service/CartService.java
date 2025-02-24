@@ -6,12 +6,12 @@ import project01.ecommerce.model.CartItem;
 import java.util.List;
 
 public interface CartService {
+    void createCart(Cart cart);
     void addToCart(Long productId, int quantity);
     void deleteCartItem(Long id);
-    Cart getCartByUser(Long userId);
-    List<CartItem> getCartItemsFix(Long cartId);
+    List<CartItem> getCartItems(Long cartId);
+    Long countTotalCartItems();
     double calculateTotalPrice(List<CartItem> cartItems);
 
     //    List<CartItemDTO> getCartItems(Long cartId);
-
 }

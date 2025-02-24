@@ -27,14 +27,6 @@ public class OrderDetail {
         this.priceAtTime = priceAtTime;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public int getQuantity() {
         return quantity;
     }
@@ -49,5 +41,21 @@ public class OrderDetail {
 
     public void setPriceAtTime(double priceAtTime) {
         this.priceAtTime = priceAtTime;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 }
