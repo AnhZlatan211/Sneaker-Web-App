@@ -25,6 +25,11 @@ public class OrderServiceImp implements OrderService {
     }
 
     @Override
+    public List<Order> findByNameContaining(String keyword) {
+        return orderRepository.findByNameContaining(keyword);
+    }
+
+    @Override
     public Long countTotalOrders() {
         return orderRepository.count();
     }

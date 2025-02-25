@@ -84,7 +84,7 @@
         <div class="mid">
             <p>Manage Order lists</p>
             <div class="category">
-                <form class="search" th:action="@{/admin/product/search}" method="post">
+                <form class="search" th:action="@{/admin/order/search}" method="post">
                     <input type="text" name="keyword" placeholder="Search by name...">
                     <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
@@ -100,7 +100,7 @@
                         <th>Create At</th>
                         <th>Total Price</th>
                         <th>Status</th>
-                        <th>Delete</th>
+                        <th>Complete</th>
                     </tr>
                     <tr th:each="order : ${orders}">
                         <td th:text="${order.recipientName}"/>
@@ -110,7 +110,7 @@
                         <td th:text="${order.createdAt}"/>
                         <td th:text="'$' + ${order.totalPrice}"/>
                         <td th:text="${order.status}"/>
-                        <td ><a class="delete"><i class="fa-solid fa-trash-can"></i></a></td>
+                        <td ><a style="color: #35c084;"><i class="fa-solid fa-square-check"></i></a></td>
                     </tr>
                 </table>
             </div>

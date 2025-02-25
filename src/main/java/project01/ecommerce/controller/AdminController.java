@@ -89,4 +89,9 @@ public class AdminController {
         model.addAttribute("totalOrders", orderService.countTotalOrders());
         return "admin/adminOrder";
     }
+    @PostMapping(value = "/order/search")
+    public String searchOrderByName(@RequestParam("keyword") String keyword, Model model) {
+        model.addAttribute("orders", orderService.findByNameContaining(keyword));
+        return "admin/adminOrder";
+    }
 }
